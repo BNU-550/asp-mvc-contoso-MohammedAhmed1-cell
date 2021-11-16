@@ -21,7 +21,11 @@ namespace ASP_MVC_Contoso.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index(string sortOrder, string searchString, Nullable<int> pageNumber)
+        public async Task<IActionResult> Index(
+            string sortOrder, 
+            string currentFilter, // this was missing! 
+            string searchString, 
+            Nullable<int> pageNumber)
         {
             ViewData["Current Sort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
